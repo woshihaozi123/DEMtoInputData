@@ -3,6 +3,7 @@ import numpy as np
 import rasterio
 from ClassifyMethod import EqualnumberClassify,EqualwidthClassify
 import os
+
 def removemissingvalue(array,missingvalue):
     # replace missing with nan
     array[array < missingvalue] = np.nan
@@ -14,7 +15,6 @@ def removemissingvalue(array,missingvalue):
     print("Non-NaN Maximum Value:", max_value)
     print("Non-NaN mean value:", mean_value)
     return array #use flatten() from 2d to 1D
-
 
 def read_tif(file_path):
     # Open the .tif file
@@ -234,6 +234,6 @@ latlist=[64.25]
 # Get the current directory
 current_dir = os.getcwd()
 writetotxt(lonlist,latlist,np.round(dem_data, decimals=4),current_dir+r'\output\file\elevation_16layers.txt')
-writetotxt(lonlist, latlist, np.round(fraction_data, decimals=4), current_dir+r'.\output\file\fraction_16layers.txt')
-writetotxt(lonlist, latlist, np.round(aspect_data, decimals=4), current_dir+r'.\output\file\aspect_16layers.txt')
-writetotxt(lonlist, latlist, np.round(slope_data, decimals=4), current_dir+r'.\output\file\slope_16layers.txt')
+writetotxt(lonlist, latlist, np.round(fraction_data, decimals=4), current_dir+r'\output\file\fraction_16layers.txt')
+writetotxt(lonlist, latlist, np.round(aspect_data, decimals=4), current_dir+r'\output\file\aspect_16layers.txt')
+writetotxt(lonlist, latlist, np.round(slope_data, decimals=4), current_dir+r'\output\file\slope_16layers.txt')

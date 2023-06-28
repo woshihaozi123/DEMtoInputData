@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 def Elevationgroupbarplot(categories,hist,meanvalue,bins,titlestr):
     # Set the width of the bars
@@ -94,8 +95,8 @@ def EqualwidthbarPlot(data, ttbins, bin_width,fraction,meanvalue,titlestr):
     plt.xticks(xticks)
     # plt.legend()
     plt.title(titlestr)
-
-    plt.savefig(titlestr.replace(" ", "_") + '.png',  bbox_inches= 'tight',dpi=300)
+    current_dir = os.getcwd()+r'\output\fig'+'\\'
+    plt.savefig(current_dir+titlestr.replace(" ", "_") + '.png',  bbox_inches= 'tight',dpi=300)
     plt.show()
 
 
