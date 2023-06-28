@@ -2,6 +2,7 @@ from osgeo import gdal
 import numpy as np
 import rasterio
 from ClassifyMethod import EqualnumberClassify,EqualwidthClassify
+import os
 def removemissingvalue(array,missingvalue):
     # replace missing with nan
     array[array < missingvalue] = np.nan
@@ -230,7 +231,9 @@ for  i in range(0,num_bins):
 lonlist=[19.75]
 latlist=[64.25]
 
-writetotxt(lonlist,latlist,np.round(dem_data, decimals=4),'elevation_16layers.txt')
-writetotxt(lonlist, latlist, np.round(fraction_data, decimals=4), 'fraction_16layers.txt')
-writetotxt(lonlist, latlist, np.round(aspect_data, decimals=4), 'aspect_16layers.txt')
-writetotxt(lonlist, latlist, np.round(slope_data, decimals=4), 'slope_16layers.txt')
+# Get the current directory
+current_dir = os.getcwd()
+writetotxt(lonlist,latlist,np.round(dem_data, decimals=4),current_dir+r'\output\file\elevation_16layers.txt')
+writetotxt(lonlist, latlist, np.round(fraction_data, decimals=4), current_dir+r'.\output\file\fraction_16layers.txt')
+writetotxt(lonlist, latlist, np.round(aspect_data, decimals=4), current_dir+r'.\output\file\aspect_16layers.txt')
+writetotxt(lonlist, latlist, np.round(slope_data, decimals=4), current_dir+r'.\output\file\slope_16layers.txt')
